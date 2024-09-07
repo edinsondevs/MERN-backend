@@ -9,15 +9,15 @@ const UsuarioSchema = new Schema({
         type: String,
         required: true
     }, 
-    edad: {
-        type: Number,
-    },
-    direccion: {
-        type: String,
-    },
-    telefono: {
-        type: Number,
-    },
+    // edad: {
+    //     type: Number,
+    // },
+    // direccion: {
+    //     type: String,
+    // },
+    // telefono: {
+    //     type: Number,
+    // },
     correo: {
         type: String,
         required: true,
@@ -26,8 +26,7 @@ const UsuarioSchema = new Schema({
     contrasena: {
         type: String,
         required: true,
-    }
-    
+    }    
 });
 
 module.exports = model('Usuario', UsuarioSchema);

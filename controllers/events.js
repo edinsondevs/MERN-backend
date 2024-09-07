@@ -4,11 +4,11 @@ const Evento = require('../models/Evento');
 const getEventos = async ( req, res= response ) => {
     // let eventos = await Evento.find({ "_id": "66d278ad6e09f6fec096bef4" })
     let eventos = await Evento.find()
-    .populate('user', 'nombre edad correo')
-
+    .populate('user')
+    
     res.json({
         ok: true,
-        msg: eventos
+        events: eventos
     })
 }
 
@@ -86,7 +86,8 @@ const deleteEvento = async ( req = request, res= response) => {
                 msg: 'No tiene permisos para modificar este evento'
             })
         }     
-        await Evento.findOneAndDelete(eventoId)
+        // await Evento.findOneAndDelete(eventoId)
+        await Evento.deleteOne({ _id: eventoId })
         
         res.status(201).json({
             ok: true,

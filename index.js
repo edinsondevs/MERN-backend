@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 require('dotenv').config();
 const { dbConnection } = require('./databases/config');
@@ -26,6 +27,10 @@ app.use('/api/auth', require('./routes/auth'));
 // todo: Ruta CRUD
 app.use('/api/events', require('./routes/events'));
 
+// Rutas para redireccionar a nuestro index.html de frontend
+app.use('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
+})
 
 // EXPORTAR EL SERVIDOR
 

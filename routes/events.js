@@ -1,3 +1,7 @@
+/* 
+    Rutas de Usuarios / Events
+    host + /api/events
+*/
 const { Router } = require('express');
 const { getEventos, createEvento, updateEvento, deleteEvento } = require('../controllers/events.js')
 const router = Router();
